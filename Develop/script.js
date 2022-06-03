@@ -1,8 +1,23 @@
 const currentDay = $("#currentDay");
 // const hourDisplay = document.getElementById("timeDisplay");
-// const textBox = document.getElementById("planner");
-const saveButton = document.querySelector(".saveBtn");
+const textBox = document.querySelectorAll("textarea");
+var saveButton = document.querySelectorAll("button");
 // const timeDiv = document.getElementById("TimeContainer");
+
+function setPlans() {
+    var textValue = textBox.value;
+    localStorage.setItem("Plans", textValue);
+}
+
+function keepInfo() {}
+
+for (var i = 0; i < saveButton.length; i++) {
+    saveButton[i].addEventListener("click", function (event) {
+        event.preventDefault();
+        setPlans();
+    });
+}
+
 // const times = [
 //     "9AM",
 //     "10AM",
